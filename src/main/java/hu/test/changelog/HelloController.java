@@ -8,9 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HelloController {
+    @GetMapping("/")
+    public ResponseEntity<String> hello() {
+        return ResponseEntity.ok("Hello World!");
+    }
+
     @GetMapping("/{name}")
     public ResponseEntity<String> hello(@PathVariable String name) {
-        name = StringUtils.hasText(name) ? "World" : name;
         return ResponseEntity.ok("Hello " + name);
     }
 }
